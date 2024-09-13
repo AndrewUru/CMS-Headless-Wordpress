@@ -1,0 +1,114 @@
+---
+// Navbar.astro
+import { gsap } from "gsap";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuIcon = document.getElementById('menu-icon');
+  const navLinks = document.getElementById('nav-links');
+
+  menuIcon.addEventListener('click', () => {
+    // Toggle the 'open' class for showing/hiding menu
+    navLinks.classList.toggle('open');
+
+    // Animar los enlaces del menú
+    if (navLinks.classList.contains('open')) {
+      gsap.fromTo('.nav-links li', { opacity: 0, x: -50 }, { opacity: 1, x: 0, stagger: 0.1, duration: 0.5 });
+    }
+  });
+});
+---
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">MiLogo</div>
+    <div class="menu-icon" id="menu-icon">
+      <!-- Ícono de hamburguesa para móvil -->
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#about">Sobre Mí</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  /* Estilos del menú */
+  .navbar {
+      background-color: #333;
+      padding: 1rem;
+      position: relative;
+  }
+
+  .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .logo {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+
+  .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+  }
+
+  .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+      color: #ff7e5f;
+  }
+
+  /* Estilos para dispositivos móviles */
+  .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+  }
+
+  .menu-icon .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px;
+      transition: 0.3s;
+  }
+
+  @media (max-width: 768px) {
+      .menu-icon {
+          display: flex;
+      }
+
+      .nav-links {
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: #333;
+          width: 100%;
+          height: 100vh;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 2rem;
+          transform: translateX(100%);
+          transition: transform 0.5s ease;
+      }
+
+      .nav-links.open {
+          transform: translateX(0);
+      }
+  }
+</style>

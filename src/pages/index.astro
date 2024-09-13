@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Bienvenidos a ElSaltoWeb">
 	<main>
 		<svg
 			class="astro-a"
@@ -33,7 +33,7 @@ import Card from '../components/Card.astro';
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<h1>Bienvenidos a <span class="text-gradient">ElSaltoWeb.es</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -64,6 +64,48 @@ import Card from '../components/Card.astro';
 </Layout>
 
 <style>
+
+:root {
+    --accent-gradient: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #91eac9);
+}
+
+.text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    animation: gradientAnimation 8s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.astro-a {
+    animation: svgAnimation 15s ease infinite;
+}
+
+@keyframes svgAnimation {
+    0% {
+        transform: translate(-50%, 0);
+    }
+    50% {
+        transform: translate(-50%, -20px);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+
 	main {
 		margin: auto;
 		padding: 1rem;
@@ -121,3 +163,20 @@ import Card from '../components/Card.astro';
 		padding: 0;
 	}
 </style>
+
+<script>
+    import { gsap } from "gsap";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.from("h1", { duration: 1.5, y: -50, opacity: 0, ease: "bounce" });
+        gsap.from(".instructions", { duration: 1, x: -100, opacity: 0, delay: 0.5 });
+        gsap.from(".link-card-grid > *", {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            delay: 1,
+            ease: "power3.out"
+        });
+    });
+</script>
