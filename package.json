@@ -13,5 +13,8 @@
   "dependencies": {
     "astro": "^4.15.5",
     "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.11"
   }
 }

@@ -1,79 +1,135 @@
 ---
 --- 
+
 <style>
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    color: white;
-    z-index: 1000; /* Asegura que la navbar esté por encima */
-    position: relative; /* Añadir position para que z-index funcione */
+/* Si necesitas añadir estilos adicionales, como animaciones personalizadas */
+/* Fondo con gradiente animado */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(45deg, #1a1c2c, #232946, #3a0ca3, #7209b7, #560bad, #3f37c9);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
 }
 
-
-  .navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+/* Animación del gradiente */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
   }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
+/* Navbar styling */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+  backdrop-filter: blur(10px); /* Efecto de desenfoque */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background 0.3s;
+}
+
+.navbar-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+/* Estilo para el menú hamburguesa */
+.navbar-toggle {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
   .navbar-links {
-    display: flex;
-    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
   }
 
   .navbar-links a {
-    color: white;
-    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .navbar-links.open {
+    display: flex;
   }
 
   .navbar-toggle {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+    display: block;
   }
+}
 
-  @media (max-width: 768px) {
-    .navbar-links {
-      display: none;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 1rem;
-    }
-
-    .navbar-links.open {
-      display: flex;
-    }
-
-    .navbar-toggle {
-      display: block;
-    }
-  }
 </style>
-
 <nav class="navbar">
-  <div class="navbar-logo">ElSaltoWeb.es</div>
-  <div class="navbar-toggle">☰</div>
-  <div class="navbar-links" id="navbar-links">
-    <a href="/">Inicio</a>
-    <a href="/proyectos">Proyectos</a>
-    <a href="/recursos">Recursos</a>
-
+  <div class="navbar-container">
+    <div class="navbar-logo">ElSaltoWeb.es</div>
+    <div class="navbar-toggle" id="navbar-toggle">
+      ☰
+    </div>
+    <div class="navbar-links" id="navbar-links">
+      <a href="/">Inicio</a>
+      <a href="/proyectos">Proyectos</a>
+      <a href="/recursos">Recursos</a>
+      <a href="/contacto">Contacto</a>
+    </div>
   </div>
 </nav>
 
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const navbarToggle = document.querySelector('.navbar-toggle');
+    const toggleButton = document.getElementById('navbar-toggle');
     const navbarLinks = document.getElementById('navbar-links');
 
-    navbarToggle.addEventListener('click', () => {
+    toggleButton.addEventListener('click', () => {
       navbarLinks.classList.toggle('open');
     });
   });
 </script>
+
+
