@@ -1,8 +1,8 @@
 ---
 interface Props {
-	title: string;
+	title?: string;
 }
-import Navbar from "../components/nav-bar.astro";
+import Navbar from "../components/NavBar.astro";
 const { title } = Astro.props;
 ---
 
@@ -17,6 +17,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navbar />
 		  <a href="/">Inicio</a>
 		  <a href="/proyectos/">Wordpress API</a>
 		<slot />

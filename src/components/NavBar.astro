@@ -1,0 +1,74 @@
+---
+// Este es el componente NavBar.astro
+---
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+  }
+
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .navbar-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .navbar-links.open {
+      display: flex;
+    }
+
+    .navbar-toggle {
+      display: block;
+    }
+  }
+</style>
+
+<nav class="navbar">
+  <div class="navbar-logo">ElSaltoWeb.es</div>
+  <div class="navbar-toggle" onclick="toggleMenu()">☰</div>
+  <div class="navbar-links" id="navbar-links">
+    <a href="/">Inicio</a>
+    <a href="/recursos">Recursos</a>
+    <a href="/contact">Contacto</a>
+    <a href="/proyectos">Proyectos</a>
+  </div>
+</nav>
+
+<script>
+  function toggleMenu() {
+    const navbarLinks = document.getElementById('navbar-links');
+    navbarLinks.classList.toggle('open');
+  }
+</script>
