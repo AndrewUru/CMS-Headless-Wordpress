@@ -1,6 +1,8 @@
 ---
-// Importa el layout
 import Layout from '../layouts/Layout.astro';
+
+// Número de posts a cargar por solicitud
+const POSTS_PER_PAGE = 15;
 
 // Función para obtener la URL de la imagen destacada
 async function getFeaturedImageUrl(featuredMediaId) {
@@ -10,60 +12,237 @@ async function getFeaturedImageUrl(featuredMediaId) {
   return mediaData.source_url || null;
 }
 
-// Obtiene las entradas desde la API de WordPress
-const res = await fetch("https://www.elsaltoweb.es/wp-json/wp/v2/posts");
-const posts = await res.json();
+// Función para cargar los posts iniciales
+async function fetchPosts(page = 1, perPage = POSTS_PER_PAGE) {
+  const res = await fetch(`https://www.elsaltoweb.es/wp-json/wp/v2/posts?page=${page}&per_page=${perPage}`);
+  const posts = await res.json();
 
-// Obtiene la URL de la imagen destacada para cada post
-for (const post of posts) {
-  post.featured_media_url = await getFeaturedImageUrl(post.featured_media);
+  // Obtener la URL de la imagen destacada para cada post
+  for (const post of posts) {
+    post.featured_media_url = await getFeaturedImageUrl(post.featured_media);
+  }
+  
+  return posts;
 }
+
+// Cargar los primeros posts
+const initialPosts = await fetchPosts();
 ---
 
 <Layout>
-  <h1>Astro + WordPress 🚀</h1>
-  <div class="post-grid">
-    {
-      posts.map((post) => (
-        <div class="post-card">
-          {post.featured_media_url && <img src={post.featured_media_url} alt={post.title.rendered} class="post-image"/>}
-          <h2 set:html={post.title.rendered} class="post-title"/>
-          <p set:html={post.excerpt.rendered} class="post-excerpt"/>
-        </div>
-      ))
-    }
+  <div class="container">
+  <h1 class="animated-title">🎨 Headless CMS en Acción: Mi Proyecto Cyberpunk 🎨</h1>
+  <h2 class="animated-title">He utilizado WordPress como un Headless CMS para crear un sitio web con efectos visuales y animaciones cyberpunk. 🚀✨</h2>
+  <div id="post-container" class="post-grid">
+    {initialPosts.map((post) => (
+      <div class="post-card">
+        {post.featured_media_url && <img src={post.featured_media_url} alt={post.title.rendered} class="post-image"/>}
+        <h2 set:html={post.title.rendered} class="post-title"/>
+        <p set:html={post.excerpt.rendered} class="post-excerpt"/>
+        <a href={post.link} target="_blank" rel="noopener noreferrer" class="post-button">Ver Recurso</a>
+      </div>
+    ))}
   </div>
+</div>
+  <script>
+    let currentPage = 1;
+    const postsPerPage = {POSTS_PER_PAGE}; // Define la constante aquí
+    const postContainer = document.getElementById('post-container');
 
-  <style>
+    // Función para cargar más posts cuando se llega al final
+    async function loadMorePosts() {
+      currentPage++;
+      const res = await fetch(`https://www.elsaltoweb.es/wp-json/wp/v2/posts?page=${currentPage}&per_page=${postsPerPage}`);
+      const newPosts = await res.json();
+      
+      // Insertar nuevos posts en el contenedor
+      newPosts.forEach(post => {
+        const postCard = document.createElement('div');
+        postCard.classList.add('post-card');
+        postCard.innerHTML = `
+          ${post.featured_media_url ? `<img src="${post.featured_media_url}" alt="${post.title.rendered}" class="post-image"/>` : ''}
+          <h2 class="post-title">${post.title.rendered}</h2>
+          <p class="post-excerpt">${post.excerpt.rendered}</p>
+          <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="post-button">Ver Recurso</a>
+        `;
+        postContainer.appendChild(postCard);
+      });
+    }
+
+    // Event listener para detectar el scroll
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
+        loadMorePosts();
+      }
+    });
+  </script>
+
+ <style>
+  /* Efecto de gradiente animado para los títulos */
+  .animated-title {
+    font-size: 2em; /* Ajusta según el tamaño que necesites */
+    font-weight: bold;
+    text-align: center;
+
+
+    color: #f2f2f2;
+    background-size: 200% 200%;
+    animation: gradientMove 3s ease-in-out infinite;
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Animación de entrada para los títulos */
+  .fadeIn {
+    opacity: 0;
+    animation: fadeInEffect 2s ease-out forwards;
+  }
+
+  @keyframes fadeInEffect {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px); /* Deslizamiento hacia abajo */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Contenedor principal para centrar y agregar márgenes laterales */
+  .container {
+    max-width: 1200px; /* Ancho máximo para centrar el contenido */
+    margin: 4em auto; /* Centra el contenedor */
+    padding: 0 20px; /* Márgenes laterales */
+  }
+
+  /* Ajustar el título de la página */
+  .page-title {
+    text-align: center;
+    margin: 40px 0 20px; /* Añadir margen superior e inferior */
+    color: #183a81; /* Color neón cian */
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 tarjetas por fila */
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .post-card {
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    background: rgba(18, 18, 29, 0.9);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+    animation: slideIn 0.8s ease-out forwards;
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  .post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.4), 0 0 50px rgba(0, 255, 255, 0.4);
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+    margin: 15px;
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  .post-excerpt {
+    padding: 0 15px 15px;
+    color: #ff79c6;
+  }
+
+  .post-button {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ff0080, #ff79c6);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 0, 128, 0.5), 0 0 20px rgba(255, 121, 198, 0.5);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+
+  .post-button:hover {
+    background: linear-gradient(45deg, #bd93f9, #50fa7b);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(189, 147, 249, 0.5), 0 0 30px rgba(80, 250, 123, 0.5);
+  }
+
+  /* Fondo gradiente animado para todo el body */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #1a1c2c, #232946, #3a0ca3, #7209b7, #560bad, #3f37c9);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Responsividad para pantallas más pequeñas */
+  @media (max-width: 768px) {
     .post-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
+      grid-template-columns: repeat(2, 1fr); /* 2 tarjetas por fila en pantallas pequeñas */
     }
-    .post-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s;
+  }
+
+  @media (max-width: 480px) {
+    .post-grid {
+      grid-template-columns: 1fr; /* 1 tarjeta por fila en pantallas muy pequeñas */
     }
-    .post-card:hover {
-      transform: translateY(-5px);
-    }
-    .post-image {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .post-title {
-      font-size: 1.5rem;
-      margin: 15px;
-      color: #e9e9e9;
-    }
-    .post-excerpt {
-      padding: 0 15px 15px;
-      color: #e9e9e9;
-    }
-  </style>
+  }
+</style>
+
+
+
 </Layout>
