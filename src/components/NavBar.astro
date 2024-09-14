@@ -1,16 +1,17 @@
 ---
-// Este es el componente NavBar.astro
----
-
+--- 
 <style>
-  .navbar {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: #333;
     color: white;
-  }
+    z-index: 1000; /* Asegura que la navbar esté por encima */
+    position: relative; /* Añadir position para que z-index funcione */
+}
+
 
   .navbar-logo {
     font-size: 1.5rem;
@@ -57,18 +58,22 @@
 
 <nav class="navbar">
   <div class="navbar-logo">ElSaltoWeb.es</div>
-  <div class="navbar-toggle" onclick="toggleMenu()">☰</div>
+  <div class="navbar-toggle">☰</div>
   <div class="navbar-links" id="navbar-links">
     <a href="/">Inicio</a>
-    <a href="/recursos">Recursos</a>
-    <a href="/contact">Contacto</a>
     <a href="/proyectos">Proyectos</a>
+    <a href="/recursos">Recursos</a>
+
   </div>
 </nav>
 
 <script>
-  function toggleMenu() {
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbarToggle = document.querySelector('.navbar-toggle');
     const navbarLinks = document.getElementById('navbar-links');
-    navbarLinks.classList.toggle('open');
-  }
+
+    navbarToggle.addEventListener('click', () => {
+      navbarLinks.classList.toggle('open');
+    });
+  });
 </script>
