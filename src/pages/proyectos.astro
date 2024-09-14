@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+const res = await fetch("https://www.elsaltoweb.es/wp-json/wp/v2/posts");
+const posts = await res.json();
+---
+<h1>Astro + WordPress 🚀</h1>
+{
+  posts.map((post) => (
+      <h2 set:html={post.title.rendered} />
+      <p set:html={post.content.rendered} />
+  ))
+}
