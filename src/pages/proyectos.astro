@@ -2,9 +2,22 @@
 // Importa el layout
 import Layout from '../layouts/Layout.astro';
 
+// Función para obtener la URL de la imagen destacada
+async function getFeaturedImageUrl(featuredMediaId) {
+  if (!featuredMediaId) return null;
+  const mediaRes = await fetch(`https://www.elsaltoweb.es/wp-json/wp/v2/media/${featuredMediaId}`);
+  const mediaData = await mediaRes.json();
+  return mediaData.source_url || null;
+}
+
 // Obtiene las entradas desde la API de WordPress
 const res = await fetch("https://www.elsaltoweb.es/wp-json/wp/v2/posts");
 const posts = await res.json();
+
+// Obtiene la URL de la imagen destacada para cada post
+for (const post of posts) {
+  post.featured_media_url = await getFeaturedImageUrl(post.featured_media);
+}
 ---
 
 <Layout>
@@ -13,7 +26,7 @@ const posts = await res.json();
     {
       posts.map((post) => (
         <div class="post-card">
-          <img src={post.featured_media_url} alt={post.title.rendered} class="post-image"/>
+          {post.featured_media_url && <img src={post.featured_media_url} alt={post.title.rendered} class="post-image"/>}
           <h2 set:html={post.title.rendered} class="post-title"/>
           <p set:html={post.excerpt.rendered} class="post-excerpt"/>
         </div>
@@ -46,10 +59,11 @@ const posts = await res.json();
     .post-title {
       font-size: 1.5rem;
       margin: 15px;
+      color: #e9e9e9;
     }
     .post-excerpt {
       padding: 0 15px 15px;
-      color: #d4d4d4;
+      color: #e9e9e9;
     }
   </style>
 </Layout>
