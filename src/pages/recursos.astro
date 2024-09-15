@@ -9,21 +9,17 @@ import Layout from '../layouts/Layout.astro';
 /* styles.css */
 
 body {
-    margin: 0;
-    padding-top: 4rem;
+
     font-family: 'Arial', sans-serif;
-    margin-top: 8%;
     background-color: #1a1c2c;
     color: #e9e9e9;
-    justify-content: center;
-    align-items: center;
-}
+   }
 
 .dashboard {
-    display: flex;
-    margin: 5%;
+    padding-top: 20vh;
     width: 80%;
     height: auto;
+    display: flex;
     max-height: 100vh;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
     border-radius: 10px;
@@ -218,11 +214,16 @@ body {
 }
 
 
+.main-container{
+height: 100vh;
 
+
+}
 </style>
 
 
 <body>
+    <div class="main-container">
     <div class="dashboard">
         <!-- Menú Lateral -->
         <aside class="sidebar">
@@ -288,6 +289,12 @@ body {
 
         </main>
     </div>
+    </div>
+ </div>
+</body>
+
+    </body>
+</body>
 
 <!-- Incluir Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -314,9 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-</script>
 
-<script>
 // overview.js
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -344,9 +349,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 
-</script>
 
-<script>
 
 // list.js
 
