@@ -31,8 +31,8 @@ const initialPosts = await fetchPosts();
 
 <Layout>
   <div class="container">
-  <h1 class="animated-title">🎨 Headless CMS en Acción: Mi Proyecto Cyberpunk 🎨</h1>
-  <h2 class="animated-title">He utilizado WordPress como un Headless CMS para crear un sitio web con efectos visuales y animaciones cyberpunk. 🚀✨</h2>
+  <h1 class="animated-title">Crea, gestiona y muestra tu contenido donde quieras.🔧</h1>
+  <h2 class="animated-title">Sitio Web con Headless CMS y APIs de WordPress: Flexibilidad y Rendimiento a tu Alcance</h2>
   <div id="post-container" class="post-grid">
     {initialPosts.map((post) => (
       <div class="post-card">
@@ -43,6 +43,14 @@ const initialPosts = await fetchPosts();
       </div>
     ))}
   </div>
+    <h2 class="animated-title">🤖 ¿Qué es un Headless CMS y por qué lo estamos usando? 🤖
+
+Un Headless CMS es un sistema de gestión de contenido que separa la gestión de contenido del frontend. 🌐 En lugar de estar atado a una plantilla específica, el contenido se entrega a través de una API para ser utilizado en cualquier plataforma. 🚀
+
+¿Por qué usarlo?</h2>
+  <h3>🔧 Flexibilidad: Utiliza cualquier tecnología frontend (¡nosotros estamos usando Astro!).
+📲 Multi-Canal: El mismo contenido puede ser utilizado en sitios web, apps móviles, y más.
+⚡ Rendimiento: Mejor rendimiento y tiempos de carga más rápidos.</h2>
 </div>
   <script>
     let currentPage = 1;

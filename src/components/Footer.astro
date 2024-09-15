@@ -1,0 +1,107 @@
+<footer id="footer">
+  <div class="col col1">
+    <h3>ElSaltoWeb.es</h3>
+    <p>Creado con <span style="color: #BA6573;">❤</span> por Andrés Tobío</p>
+    <div class="social">
+      <a href="https://github.com/andrestobio" target="_blank" class="link"><img src="" alt="GitHub" /></a>
+      <a href="https://twitter.com/andrestobio" target="_blank" class="link"><img src="" alt="Twitter" /></a>
+      <a href="https://linkedin.com/in/andrestobio" target="_blank" class="link"><img src="" alt="LinkedIn" /></a>
+    </div>
+    <p style="color: #818181; font-size: smaller">2024 © Todos los Derechos Reservados</p>
+  </div>
+  <div class="col col2">
+    <h4>Sobre el Proyecto</h4>
+    <p>Este proyecto utiliza WordPress como Headless CMS para ofrecer contenido dinámico a través de APIs.</p>
+    <p><a href="/recursos" class="footer-link">Recursos</a></p>
+    <p><a href="/contacto" class="footer-link">Contáctame</a></p>
+  </div>
+  <div class="col col3">
+    <h4>Información</h4>
+    <p><a href="/about" class="footer-link">Sobre Mí</a></p>
+    <p><a href="/privacy-policy" class="footer-link">Política de Privacidad</a></p>
+    <p><a href="/terms-of-service" class="footer-link">Términos de Servicio</a></p>
+  </div>
+  <div class="backdrop"></div>
+</footer>
+
+
+<style>
+  body {
+    color: #e9e9e9;
+  }
+  #footer {
+    background-color: rgba(18, 18, 29, 0.9);
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #e9e9e9;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #footer .col {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+  }
+
+  #footer h3, #footer h4 {
+    color: #00ffff; /* Color neón cian */
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+
+  #footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+
+  .social {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social .link img {
+    width: 30px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s, filter 0.3s;
+  }
+
+  .social .link img:hover {
+    transform: scale(1.1);
+    filter: brightness(0) invert(0.5);
+  }
+
+  .footer-link {
+    color: #ff79c6; /* Color neón rosado */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-link:hover {
+    color: #bd93f9; /* Color neón púrpura */
+  }
+
+  .backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #1a1c2c, #232946, #3a0ca3, #7209b7, #560bad, #3f37c9);
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    #footer {
+      flex-direction: column;
+      align-items: center;
+    }
+    #footer .col {
+      margin-bottom: 20px;
+    }
+  }
+</style>
