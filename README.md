@@ -1,54 +1,85 @@
 # Conectando Wordpress mediante APIs
 
-```sh
-npm create astro@latest -- --template basics
-```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+¡Bienvenido al proyecto "Welcome to Astro"! Este proyecto demuestra cómo conectar WordPress como un Headless CMS utilizando APIs, proporcionando una experiencia de desarrollo moderna y eficiente. 
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Después de instalar las dependencias, puedes iniciar el proyecto con:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+npm run dev
 
-## 🚀 Project Structure
+📚 Estructura del Proyecto
 
-Inside of your Astro project, you'll see the following folders and files:
+Dentro de tu proyecto Astro, encontrarás las siguientes carpetas y archivos:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+src/pages: Contiene las diferentes páginas del proyecto.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+src/components: Componentes reutilizables de la interfaz.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+public/: Recursos públicos como imágenes, fuentes, etc.
 
-Any static assets, like images, can be placed in the `public/` directory.
+astro.config.mjs: Archivo de configuración de Astro.
 
-## 🧞 Commands
+README.md: Este archivo, donde encontrarás toda la información necesaria sobre el proyecto.
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+✨ Tecnologías Utilizadas
 
-## 👀 Want to learn more?
+Este proyecto utiliza las siguientes tecnologías:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Astro: Para la generación de sitios estáticos y modernos.
+
+WordPress API: Como Headless CMS para gestionar y servir contenido.
+
+GSAP: Para animaciones interactivas y dinámicas.
+
+Font Awesome: Para iconos sociales y visuales.
+
+
+💻 Contribuyendo
+
+¿Te interesa colaborar? ¡Tu ayuda es más que bienvenida! Este proyecto está en constante desarrollo y siempre hay espacio para mejoras. Puedes contribuir de las siguientes maneras:
+
+🐛 Reportando Bugs: Si encuentras algún error, abre un issue describiendo el problema.
+
+📖 Mejorando la Documentación: Ayuda a mejorar este README.md o cualquier otro aspecto de la documentación.
+
+💡 Sugerencias: Si tienes ideas para nuevas características, siéntete libre de abrir un issue con tu propuesta.
+
+🔧 Desarrollo: Realiza un fork del proyecto, haz tus cambios y envía un pull request para revisión.
+
+
+📫 Contacto
+
+Si tienes preguntas o deseas colaborar de una manera diferente, no dudes en contactarme:
+
+GitHub: andrestobio
+
+Twitter: @andrestobio
+
+LinkedIn: Andrés Tobío
+
+
+🎯 Próximos Pasos
+
+Implementar más ejemplos de integración con WordPress API.
+
+Añadir más animaciones y efectos visuales.
+
+Mejorar la documentación con más detalles sobre el uso de Astro y WordPress como Headless CMS.
+
+
+🛠 Licencia
+
+Este proyecto está bajo la Licencia MIT. Puedes ver más detalles en el archivo LICENSE del repositorio.
+
+¡Gracias por visitar el proyecto! Espero que encuentres útil esta guía y te unas a la comunidad para mejorarla.
+
+
+---
+
+Hecho con ❤️ por Andrés Tobío
+
+### Cómo utilizar este `README.md`
+1. **Integración:** Copia el contenido proporcionado en el archivo `README.md` de tu proyecto.
+2. **Personalización:** Ajusta cualquier sección que desees personalizar más (como detalles de contacto o pasos específicos).
+3. **Colaboración:** Invita a otros desarrolladores a contribuir en tu proyecto siguiendo las indicaciones del archivo.
