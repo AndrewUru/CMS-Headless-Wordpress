@@ -1,88 +1,90 @@
 <footer id="footer">
-  <div class="col col1">
-    <h3>ElSaltoWeb.es</h3>
-    <p>Creado con <span style="color: #BA6573;">❤</span> por Andrés Tobío</p>
-    <div class="social">
-      <a href="https://github.com/andrestobio" target="_blank" class="link"><img src="" alt="GitHub" /></a>
-      <a href="https://twitter.com/andrestobio" target="_blank" class="link"><img src="" alt="Twitter" /></a>
-      <a href="https://linkedin.com/in/andrestobio" target="_blank" class="link"><img src="" alt="LinkedIn" /></a>
+    <div class="col col1">
+        <h3>ElSaltoWeb.es</h3>
+        <p>Creado con <span style="color: #BA6573;">❤</span> por Andrés Tobío</p>
+        <div class="social">
+            <a href="https://github.com/andrestobio" target="_blank" class="link"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/andrestobio" target="_blank" class="link"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/andrestobio" target="_blank" class="link"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p style="color: #818181; font-size: smaller">2024 © Todos los Derechos Reservados</p>
     </div>
-    <p style="color: #818181; font-size: smaller">2024 © Todos los Derechos Reservados</p>
-  </div>
-  <div class="col col2">
-    <h4>Sobre el Proyecto</h4>
-    <p>Este proyecto utiliza WordPress como Headless CMS para ofrecer contenido dinámico a través de APIs.</p>
-    <p><a href="/recursos" class="footer-link">Recursos</a></p>
-    <p><a href="/contacto" class="footer-link">Contáctame</a></p>
-  </div>
-  <div class="col col3">
-    <h4>Información</h4>
-    <p><a href="/about" class="footer-link">Sobre Mí</a></p>
-    <p><a href="/privacy-policy" class="footer-link">Política de Privacidad</a></p>
-    <p><a href="/terms-of-service" class="footer-link">Términos de Servicio</a></p>
-  </div>
-  <div class="backdrop"></div>
+    <div class="col col2">
+        <h4>Sobre el Proyecto</h4>
+        <p>Este proyecto utiliza WordPress como Headless CMS para ofrecer contenido dinámico a través de APIs.</p>
+        <p><a href="/recursos" class="footer-link">Recursos</a></p>
+        <p><a href="/contacto" class="footer-link">Contáctame</a></p>
+    </div>
+    <div class="col col3">
+        <h4>Información</h4>
+        <p><a href="/about" class="footer-link">Sobre Mí</a></p>
+        <p><a href="/privacy-policy" class="footer-link">Política de Privacidad</a></p>
+        <p><a href="/terms-of-service" class="footer-link">Términos de Servicio</a></p>
+    </div>
+    <div class="backdrop"></div>
 </footer>
+
+<!-- Importar Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 
 <style>
-  body {
-    color: #e9e9e9;
-  }
-  #footer {
+ #footer {
     background-color: rgba(18, 18, 29, 0.9);
     padding: 40px 20px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center; /* Centramos las columnas */
     color: #e9e9e9;
     position: relative;
     overflow: hidden;
-  }
+}
 
-  #footer .col {
+#footer .col {
     flex: 1;
     min-width: 200px;
     margin: 20px;
-  }
+    text-align: center; /* Centramos el texto */
+}
 
-  #footer h3, #footer h4 {
+#footer h3, #footer h4 {
     color: #00ffff; /* Color neón cian */
     text-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
-  }
+}
 
-  #footer p {
+#footer p {
     margin: 10px 0;
     font-size: 1rem;
-  }
+}
 
-  .social {
+.social {
     display: flex;
-    gap: 10px;
-  }
+    justify-content: center; /* Centramos los iconos */
+    gap: 20px; /* Separación entre iconos */
+}
 
-  .social .link img {
-    width: 30px;
-    filter: brightness(0) invert(1);
-    transition: transform 0.3s, filter 0.3s;
-  }
+.social .link i {
+    font-size: 2rem;
+    color: #e9e9e9; /* Color de los iconos */
+    transition: transform 0.3s, color 0.3s;
+}
 
-  .social .link img:hover {
-    transform: scale(1.1);
-    filter: brightness(0) invert(0.5);
-  }
+.social .link i:hover {
+    transform: scale(1.2);
+    color: #00ffff; /* Color neón cian en hover */
+}
 
-  .footer-link {
+.footer-link {
     color: #ff79c6; /* Color neón rosado */
     text-decoration: none;
     transition: color 0.3s;
-  }
+}
 
-  .footer-link:hover {
+.footer-link:hover {
     color: #bd93f9; /* Color neón púrpura */
-  }
+}
 
-  .backdrop {
+.backdrop {
     position: absolute;
     top: 0;
     left: 0;
@@ -92,16 +94,17 @@
     opacity: 0.1;
     z-index: -1;
     pointer-events: none;
-  }
+}
 
-  /* Responsividad */
-  @media (max-width: 768px) {
+/* Responsividad */
+@media (max-width: 768px) {
     #footer {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
     #footer .col {
-      margin-bottom: 20px;
+        margin-bottom: 20px;
     }
-  }
+}
+
 </style>

@@ -1,118 +1,167 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout>
-  <div class="contact-container">
-    <h1 class="contact-title">Contáctame</h1>
-    <form class="contact-form">
-      <div class="form-group">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" required>
+
+
+<Layout title="Contacto">
+  <style>
+
+.contact-page {
+  height: 90vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+justify-content: center;
+align-items: center;
+align-self: center;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centramos las columnas */
+    color: #e9e9e9;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #c5c5c5a6;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 4px solid;
+  border-image-slice: 1;
+  border-width: 4px;
+  border-image-source: linear-gradient(45deg, #8a5fff, #0599369c);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tech-icons, .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tech-item, .social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #0f0f0f;
+}
+
+.tech-item i, .social-item i {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tech-item p, .social-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.tech-item:hover i, .social-item:hover i {
+  transform: scale(1.2);
+}
+
+
+  </style>
+  <div class="contact-page">
+    <div class="card-container">
+      <div class="card">
+        <h2>Tecnologías Utilizadas</h2>
+        <div class="tech-icons">
+          <div class="tech-item">
+            <i class="fab fa-html5"></i>
+            <p>HTML5</p>
+          </div>
+          <div class="tech-item">
+            <i class="fab fa-css3-alt"></i>
+            <p>CSS3</p>
+          </div>
+          <div class="tech-item">
+            <i class="fab fa-js-square"></i>
+            <p>JavaScript</p>
+          </div>
+          <div class="tech-item">
+            <i class="fas fa-star"></i>
+            <p>Astro</p>
+          </div>
+          <!-- Agregar más tecnologías si es necesario -->
+        </div>
       </div>
-      <div class="form-group">
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required>
+
+      <div class="card">
+        <h2>Conéctate Conmigo</h2>
+        <div class="social-icons">
+          <a href="https://github.com/tu-usuario" target="_blank" class="social-item">
+            <i class="fab fa-github"></i>
+            <p>GitHub</p>
+          </a>
+          <a href="https://linkedin.com/in/tu-usuario" target="_blank" class="social-item">
+            <i class="fab fa-linkedin"></i>
+            <p>LinkedIn</p>
+          </a>
+          <a href="https://twitter.com/tu-usuario" target="_blank" class="social-item">
+            <i class="fab fa-twitter"></i>
+            <p>Twitter</p>
+          </a>
+          <!-- Agregar más redes sociales si es necesario -->
+        </div>
       </div>
-      <div class="form-group">
-        <label for="message">Mensaje:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="contact-button">Enviar</button>
-    </form>
+    </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Animación de entrada para el contenedor del formulario
-      gsap.to('.contact-container', {
-          duration: 1,
-          opacity: 1,
-          y: 0,
-          ease: 'power4.out'
-      });
 
-      // Animación secuencial para los elementos del formulario
-      gsap.from('.contact-form .form-group', {
-          duration: 0.8,
-          y: 20,
-          opacity: 0,
-          stagger: 0.2,
-          delay: 0.5,
-          ease: 'power3.out'
-      });
+document.addEventListener("DOMContentLoaded", () => {
+    // Seleccionar todas las tarjetas
+    const cards = document.querySelectorAll(".card");
 
-      // Animación para el botón
-      gsap.from('.contact-button', {
-          duration: 0.8,
-          scale: 0.9,
-          opacity: 0,
-          delay: 1.2,
-          ease: 'back.out(1.7)'
-      });
+    // Añadir animación con GSAP al hover
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                duration: 0.5,
+                y: -10,
+                ease: "power3.out",
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                duration: 0.5,
+                y: 0,
+                ease: "power3.out",
+            });
+        });
     });
+});
+
+
   </script>
 
-  <style>
-    .contact-container {
-        text-align: center;
-        z-index: 999;
-        width: 90%;
-        max-width: 600px;
-        padding: 40px;
-        background-color: #232946;
-        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-        border-radius: 10px;
-        opacity: 0; /* Para animación de entrada */
-        transform: translateY(50px); /* Para animación de entrada */
-        margin: 40px auto; /* Para centrar el contenedor */
-    }
-
-    .contact-title {
-        font-size: 2.5rem;
-        color: #00ffff;
-        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-        margin-bottom: 20px;
-    }
-
-    .contact-form .form-group {
-        margin-bottom: 20px;
-        text-align: left;
-    }
-
-    .contact-form label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #3a0ca3;
-        border-radius: 5px;
-        background-color: #1a1c2c;
-        color: #e9e9e9;
-        font-size: 1rem;
-        outline: none;
-        box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
-    }
-
-    .contact-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-        color: #fff;
-        background: linear-gradient(45deg, #ff0080, #ff79c6);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: transform 0.3s;
-        box-shadow: 0 0 15px rgba(255, 0, 128, 0.5), 0 0 30px rgba(255, 121, 198, 0.5);
-    }
-
-    .contact-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(255, 0, 128, 0.7), 0 0 40px rgba(255, 121, 198, 0.7);
-    }
-  </style>
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </Layout>
