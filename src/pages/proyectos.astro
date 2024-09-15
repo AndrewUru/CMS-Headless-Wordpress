@@ -81,6 +81,11 @@ const initialPosts = await fetchPosts();
   </script>
 
  <style>
+
+   .post-excerpt {
+    color:#f2f2f2;
+   }
+
   /* Efecto de gradiente animado para los títulos */
   .animated-title {
     font-size: 24px; /* Tamaño por defecto */
@@ -157,7 +162,7 @@ const initialPosts = await fetchPosts();
   /* Contenedor principal para centrar y agregar márgenes laterales */
   .container {
     max-width: 1200px; /* Ancho máximo para centrar el contenido */
-    margin: 15vh auto; /* Centra el contenedor */
+    margin: 60px auto; /* Centra el contenedor */
     padding: 20px 20px; /* Márgenes laterales */
   }
 
@@ -180,7 +185,7 @@ const initialPosts = await fetchPosts();
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
-    padding: 4px;
+    padding: 16px;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
     background: rgba(18, 18, 29, 0.9);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -189,6 +194,7 @@ const initialPosts = await fetchPosts();
     animation: slideIn 0.8s ease-out forwards;
     transform: translateY(50px);
     opacity: 0;
+    color:#f2f2f2;
   }
 
   .post-card:hover {
@@ -221,8 +227,8 @@ const initialPosts = await fetchPosts();
   }
 
   .post-excerpt {
-    padding: 0 15px 15px;
-    color: #ff79c6;
+    padding: 15px;
+    color: #f2f2f2;
   }
 
   .post-button {
