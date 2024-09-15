@@ -31,12 +31,10 @@ const initialPosts = await fetchPosts();
 
 <Layout>
   <div class="container">
-  <h2 class="animated-title">🤖 ¿Qué es un Headless CMS y por qué lo estamos usando? 🤖<br>
-Un Headless CMS es un sistema de gestión de contenido que separa la gestión de contenido del frontend. 🌐<br> En lugar de estar atado a una plantilla específica, el contenido se entrega a través de una API para ser utilizado en cualquier plataforma. 🚀<br>
-¿Por qué usarlo?</h2>
+  <h2 class="animated-title">Un Headless CMS es un sistema de gestión de contenido que separa la gestión de contenido del frontend. 🌐<br> En lugar de estar atado a una plantilla específica, el contenido se entrega a través de una API para ser utilizado en cualquier plataforma. 🚀<br></h2>
     <h3 class="animated-title2">🔧 Flexibilidad: Utiliza cualquier tecnología frontend (¡nosotros estamos usando Astro!).<br>
 📲 Multi-Canal: El mismo contenido puede ser utilizado en sitios web, apps móviles, y más.<br>
-⚡ Rendimiento: Mejor rendimiento y tiempos de carga más rápidos.</h2>
+⚡ Rendimiento: Mejor rendimiento y tiempos de carga más rápidos.</h3>
   <div id="post-container" class="post-grid">
     {initialPosts.map((post) => (
       <div class="post-card">
@@ -48,9 +46,6 @@ Un Headless CMS es un sistema de gestión de contenido que separa la gestión de
     ))}
   </div>
 <p class="animated-title2" >Sitio Web con Headless CMS y APIs de WordPress: Flexibilidad y Rendimiento a tu Alcance</p>
-  <h3 class="animated-title2">🔧 Flexibilidad: Utiliza cualquier tecnología frontend (¡nosotros estamos usando Astro!).<br>
-📲 Multi-Canal: El mismo contenido puede ser utilizado en sitios web, apps móviles, y más.<br>
-⚡ Rendimiento: Mejor rendimiento y tiempos de carga más rápidos.</h2>
 </div>
   <script>
     let currentPage = 1;
@@ -88,26 +83,47 @@ Un Headless CMS es un sistema de gestión de contenido que separa la gestión de
  <style>
   /* Efecto de gradiente animado para los títulos */
   .animated-title {
-    font-size: 2em; /* Ajusta según el tamaño que necesites */
+    font-size: 24px; /* Tamaño por defecto */
     font-weight: bold;
     text-align: center;
-
-
     color: #f2f2f2;
     background-size: 200% 200%;
     animation: gradientMove 3s ease-in-out infinite;
-  }
+}
 
-   .animated-title2 {
-    font-size: 1em; /* Ajusta según el tamaño que necesites */
+.animated-title2 {
+    font-size: 16px; /* Tamaño por defecto */
     font-weight: bold;
     text-align: center;
-
-
     color: #f2f2f2;
     background-size: 200% 200%;
     animation: gradientMove 3s ease-in-out infinite;
-  }
+}
+
+/* Media queries para dispositivos más pequeños */
+
+/* Pantallas medianas (tablets, pantallas pequeñas) */
+@media (max-width: 768px) {
+    .animated-title {
+        font-size: 20px; /* Ajustar tamaño de fuente */
+    }
+
+    .animated-title2 {
+        font-size: 14px; /* Ajustar tamaño de fuente */
+    }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+    .animated-title {
+        font-size: 18px; /* Ajustar tamaño de fuente */
+    }
+
+    .animated-title2 {
+        font-size: 12px; /* Ajustar tamaño de fuente */
+    }
+}
+
 
   @keyframes gradientMove {
     0% {
@@ -141,8 +157,8 @@ Un Headless CMS es un sistema de gestión de contenido que separa la gestión de
   /* Contenedor principal para centrar y agregar márgenes laterales */
   .container {
     max-width: 1200px; /* Ancho máximo para centrar el contenido */
-    margin: 8% auto; /* Centra el contenedor */
-    padding: 0 20px; /* Márgenes laterales */
+    margin: 15vh auto; /* Centra el contenedor */
+    padding: 20px 20px; /* Márgenes laterales */
   }
 
   /* Ajustar el título de la página */
