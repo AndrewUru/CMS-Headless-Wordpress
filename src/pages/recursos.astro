@@ -6,6 +6,8 @@ import Layout from '../layouts/Layout.astro';
 <style>
 /* styles.css */
 
+/* styles.css */
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -14,24 +16,25 @@ body {
     color: #e9e9e9;
     justify-content: center;
     align-items: center;
-
 }
 
 .dashboard {
     display: flex;
     margin: 8%;
     width: 80%;
-    height: 100vh;
+    height: auto;
+    max-height: 100vh;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
     border-radius: 10px;
     overflow: hidden;
+    flex-direction: column; /* Ajuste por defecto para dispositivos pequeños */
 }
 
 .sidebar {
-    width: 250px;
+    width: 100%; /* Ocupa todo el ancho en dispositivos pequeños */
     background-color: #232946;
     padding: 20px;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Cambiar sombra en la parte inferior */
 }
 
 .sidebar h2 {
@@ -65,7 +68,7 @@ body {
 
 .main-content {
     flex-grow: 1;
-    padding: 40px;
+    padding: 20px;
     background-color: #2b2d42;
 }
 
@@ -92,6 +95,49 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+    .dashboard {
+        flex-direction: row; /* Cambiar a diseño de fila en pantallas medianas y grandes */
+    }
+
+    .sidebar {
+        width: 250px;
+        height: auto;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-content {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .sidebar nav ul li a {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .main-content header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar nav ul li a {
+        padding: 6px;
+        font-size: 0.8rem;
+    }
+
+    .main-content header h1 {
+        font-size: 1.3rem;
+    }
+
+    .main-content {
+        padding: 20px 10px;
     }
 }
 
