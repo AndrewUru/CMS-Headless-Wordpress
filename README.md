@@ -1,4 +1,4 @@
-# Astro Starter Kit: Basics
+# Conectando Wordpress mediante APIs
 
 ```sh
 npm create astro@latest -- --template basics
