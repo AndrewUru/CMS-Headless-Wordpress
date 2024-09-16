@@ -250,26 +250,7 @@ const initialPosts = await fetchPosts();
     box-shadow: 0 0 15px rgba(189, 147, 249, 0.5), 0 0 30px rgba(80, 250, 123, 0.5);
   }
 
-  /* Fondo gradiente animado para todo el body */
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #1a1c2c, #232946, #3a0ca3, #7209b7, #560bad, #3f37c9);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-  }
 
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 
   /* Responsividad para pantallas más pequeñas */
   @media (max-width: 768px) {
