@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Chart } from 'chart.js';
+import Chart from 'chart.js/auto';
 ---
 
 <Layout>
@@ -22,7 +22,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 2rem;
-  height: 100vh;
+  height: 100%;
   padding: 10%;
 }
 
@@ -227,6 +227,8 @@ body {
 </div>
 
 <script>
+
+    
 document.addEventListener('DOMContentLoaded', async () => {
   // Configuración inicial
   const API_BASE = 'https://www.elsaltoweb.es/wp-json';
