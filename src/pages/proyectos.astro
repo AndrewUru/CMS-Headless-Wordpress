@@ -1,9 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Número de posts a cargar por solicitud
-const POSTS_PER_PAGE = 15;
-
 // Función para obtener la URL de la imagen destacada
 async function getFeaturedImageUrl(featuredMediaId) {
   if (!featuredMediaId) return null;
@@ -48,8 +45,8 @@ const initialPosts = await fetchPosts();
 <p class="animated-title2" >Sitio Web con Headless CMS y APIs de WordPress: Flexibilidad y Rendimiento a tu Alcance</p>
 </div>
   <script>
-    let currentPage = 1;
-    const postsPerPage = {postsPerPage}; // Define la constante aquí
+    let currentPage = 1; // Define la variable currentPage
+    const postsPerPage = 15; // Define la constante aquí
     const postContainer = document.getElementById('post-container');
 
     // Función para cargar más posts cuando se llega al final
