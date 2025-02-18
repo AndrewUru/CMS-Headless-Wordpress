@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Número de posts a cargar por solicitud
+const POSTS_PER_PAGE = 15; // Declaración movida al inicio
 
 // Función para obtener la URL de la imagen destacada
 async function getFeaturedImageUrl(featuredMediaId) {
@@ -26,8 +26,8 @@ async function fetchPosts(page = 1, perPage = POSTS_PER_PAGE) {
 
 // Cargar los primeros posts
 const initialPosts = await fetchPosts();
-const POSTS_PER_PAGE = 15;
 ---
+
 
 <Layout>
   <div class="container">
