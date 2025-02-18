@@ -5,219 +5,245 @@ import NavBar from '../components/NavBar.astro';
 ---
 
 <Layout title="Bienvenidos a ElSaltoWeb">
+  <main class="container">
+    <h1 class="hero-title">
+      <span class="hero-gradient">ElSaltoWeb.es</span>
+      <span class="subtitle">Tu puente entre WordPress y el Jamstack</span>
+    </h1>
+    
+    <section class="intro-card">
+      <div class="glow-effect"></div>
+      <p class="intro-text">
+        Conecta WordPress con cualquier frontend y crea experiencias personalizadas e innovadoras. 
+        Utiliza React, Vue.js, Astro u otros frameworks para construir soluciones modernas y optimizadas.
+      </p>
+    </section>
 
-	<main>
-				<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		
-	<h1>Bienvenidos a <span class="text-gradient">ElSaltoWeb.es</span></h1>
-<p class="instructions">
-   Conecta WordPress con cualquier frontend y crea experiencias personalizadas e innovadoras para tus usuarios. Puedes utilizar cualquier tecnología o framework frontend, como React, Vue.js, o en este caso, Astro, para presentar el contenido. Esto permite a los desarrolladores crear experiencias personalizadas y optimizadas para los usuarios.
-</p>
-<ul role="list" class="link-card-grid">
-    <Card
+    <ul class="card-grid">
+      <Card
         href="https://docs.astro.build/"
         title="Documentación de Astro"
-        body="Descubre cómo funciona Astro y explora la documentación oficial de la API para empezar con tu proyecto."
-    />
-    <Card
+        body="Descubre cómo funciona Astro y explora la documentación oficial."
+        icon="🚀"
+      />
+      <Card
         href="https://developer.wordpress.org/rest-api/"
         title="API REST de WordPress"
-        body="Aprende a usar la API REST de WordPress para obtener contenido y usarlo en tu sitio web con Astro."
-    />
-    <Card
+        body="Aprende a usar la API REST de WordPress con Astro."
+        icon="🔌"
+      />
+      <Card
         href="https://elsaltoweb.es/headless-cms/"
         title="Guía de Integración"
-        body="Sigue nuestra guía paso a paso para integrar WordPress con Astro y mostrar tus entradas de forma dinámica."
-    />
-    <Card
+        body="Integra WordPress con Astro paso a paso."
+        icon="📘"
+      />
+      <Card
         href="https://astro.build/integrations/"
         title="Integraciones con Astro"
-        body="Potencia tu proyecto con Astro utilizando diversas integraciones y librerías para mejorar la funcionalidad."
-    />
-    <Card
+        body="Mejora tu proyecto con integraciones."
+        icon="🧩"
+      />
+      <Card
         href="https://astro.build/chat/"
         title="Comunidad de Astro"
-        body="Únete a nuestra comunidad en Discord para obtener ayuda y compartir tus proyectos con otros desarrolladores."
-    />
-</ul>
-</main>
-
+        body="Únete a nuestra comunidad en Discord."
+        icon="💬"
+      />
+    </ul>
+  </main>
 </Layout>
 
-<style>
-:root {
-    --accent-gradient: linear-gradient(45deg, #ff7e5f, #feb47b, #86a8e7, #91eac9);
-}
+<style is:global>
+  :root {
+    --gradient-1: #ff7e5f;
+    --gradient-2: #feb47b;
+    --gradient-3: #86a8e7;
+    --gradient-4: #91eac9;
+    --accent-gradient: linear-gradient(45deg, 
+      var(--gradient-1),
+      var(--gradient-2),
+      var(--gradient-3),
+      var(--gradient-4)
+    );
+    --glass-bg: rgba(255, 255, 255, 0.05);
+  }
 
-.text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    animation: gradientAnimation 8s ease infinite;
-}
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
 
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.astro-a {
-    animation: svgAnimation 15s ease infinite;
-}
-
-@keyframes svgAnimation {
-    0% {
-        transform: translate(-50%, 0);
-    }
-    50% {
-        transform: translate(-50%, -20px);
-    }
-    100% {
-        transform: translate(-50%, 0);
-    }
-}
-
-main {
-    margin: auto;
-    padding: 1rem;    
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-h1 {
-
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
+  .hero-title {
     text-align: center;
-    margin-bottom: 1em;
-    padding-top: 100px;
+    margin: 4rem 0 3rem;
+    position: relative;
+  }
 
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    main {
-        font-size: 18px;
-         padding: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    main {
-        font-size: 16px;
-        padding: 0.5rem;
-    }
-    h1 {
-        font-size: 2.5rem;
-    }
-    .instructions {
-        font-size: 0.9em;
-    }
-    .instructions code {
-        font-size: 0.75em;
-    }
-}
-
-.astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-}
-
-
-.text-gradient {
+  .hero-gradient {
+    display: block;
+    font-size: clamp(3rem, 8vw, 6rem);
     background-image: var(--accent-gradient);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
     background-size: 400%;
-    background-position: 0%;
-}
+    animation: gradientFlow 12s ease infinite;
+    line-height: 1.1;
+  }
 
-.instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-    padding: 1.5rem;
-    border-radius: 8px;
-}
+  .subtitle {
+    display: block;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
 
-.instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-}
+  .intro-card {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
 
-.instructions strong {
-    color: rgb(var(--accent-light));
-}
+  .intro-card:hover {
+    transform: translateY(-5px);
+  }
 
-.link-card-grid {
+  .glow-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(
+      800px circle at var(--x) var(--y),
+      rgba(134, 168, 231, 0.15),
+      transparent 40%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .intro-card:hover .glow-effect {
+    opacity: 1;
+  }
+
+  .intro-text {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 0;
-}
+    padding: 2rem 0;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
 
-/* Further adjustments for smaller screens */
-@media (max-width: 768px) {
-    .link-card-grid {
-        gap: 1.5rem;
-    }
-}
+  @keyframes gradientFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
 
-@media (max-width: 480px) {
-    .link-card-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
     }
-}
+    
+    .intro-card {
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      margin: 2rem 0;
+    }
+    
+    .intro-text {
+      font-size: 1rem;
+    }
+  }
 </style>
 
-
 <script>
-    import { gsap } from "gsap";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    document.addEventListener("DOMContentLoaded", () => {
-        gsap.from("h1", { duration: 1.5, y: -50, opacity: 0, ease: "bounce" });
-        gsap.from(".instructions", { duration: 1, x: -100, opacity: 0, delay: 0.5 });
-        gsap.from(".link-card-grid > *", {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            delay: 1,
-            ease: "power3.out"
-        });
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación con seguimiento del mouse para el efecto de brillo
+  document.addEventListener('DOMContentLoaded', () => {
+    const introCard = document.querySelector('.intro-card');
+    
+    if(introCard) {
+      introCard.addEventListener('mousemove', (e) => {
+        const rect = introCard.getBoundingClientRect();
+        introCard.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        introCard.style.setProperty('--y', `${e.clientY - rect.top}px`);
+      });
+    }
+
+    // Animaciones GSAP con ScrollTrigger
+    gsap.from(".hero-gradient", {
+      duration: 1.5,
+      opacity: 0,
+      y: 50,
+      ease: "power4.out"
     });
+
+    gsap.from(".subtitle", {
+      duration: 1,
+      opacity: 0,
+      y: 30,
+      delay: 0.3,
+      ease: "expo.out"
+    });
+
+    gsap.from(".intro-card", {
+      scrollTrigger: {
+        trigger: ".intro-card",
+        start: "top 80%"
+      },
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      ease: "power2.out"
+    });
+
+    gsap.from(".card-grid > *", {
+      scrollTrigger: {
+        trigger: ".card-grid",
+        start: "top 90%"
+      },
+      duration: 0.8,
+      opacity: 0,
+      y: 40,
+      stagger: 0.15,
+      ease: "back.out(1.4)"
+    });
+  });
 </script>
