@@ -1,29 +1,80 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import NavBar from '../components/NavBar.astro';
 ---
 
 <Layout title="Bienvenidos a ElSaltoWeb">
-  <main class="container">
-    <h1 class="hero-title">
-      <span class="hero-gradient">ElSaltoWeb.es</span>
-      <span class="subtitle">Tu puente entre WordPress y el Jamstack</span>
-    </h1>
-    
-    <section class="intro-card">
-      <div class="glow-effect"></div>
-      <p class="intro-text">
-        Conecta WordPress con cualquier frontend y crea experiencias personalizadas e innovadoras. 
-        Utiliza React, Vue.js, Astro u otros frameworks para construir soluciones modernas y optimizadas.
-      </p>
-    </section>
 
-    <ul class="card-grid">
+  <main class="container mx-auto px-4 py-10 space-y-20">
+  <!-- HERO -->
+  <section class="text-center space-y-4">
+    <h1 class="hero-title text-4xl md:text-6xl font-extrabold">
+      <span class="hero-gradient block">ElSaltoWeb.es</span>
+    </h1>
+    <p class="subtitle text-xl text-gray-200">Tu puente entre WordPress y el Jamstack</p>
+    <a href="#cta" class="btn-hero mt-6 inline-block px-8 py-3 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 text-white text-lg font-bold shadow-lg hover:scale-105 transition">
+      Quiero empezar
+    </a>
+  </section>
+
+  <!-- COPY VENDEDOR GENERAL -->
+  <section class="mx-auto max-w-3xl bg-white/5 p-8 rounded-2xl shadow-xl space-y-4">
+    <h2 class="text-2xl font-bold text-white mb-2">✨ Transforma tu sitio WordPress en una máquina de alto rendimiento</h2>
+    <p class="text-lg text-gray-100">
+      En <strong>ElSaltoWeb.es</strong>, unimos la potencia de WordPress con la flexibilidad de frameworks modernos como Astro, React o Vue para ayudarte a crear sitios rápidos, seguros y totalmente personalizados.
+    </p>
+    <p class="text-lg text-gray-100">
+      Ya no tienes que elegir entre la facilidad de WordPress y la velocidad del Jamstack: puedes tener lo mejor de ambos mundos.
+    </p>
+  </section>
+
+  <!-- QUÉ HACEMOS -->
+  <section class="grid md:grid-cols-2 gap-10 items-center">
+    <div class="space-y-4">
+      <h3 class="text-xl font-semibold text-white">🚀 ¿Qué hacemos por ti?</h3>
+      <ul class="list-disc pl-5 text-gray-100 space-y-2">
+        <li>Desacoplamos tu WordPress y lo convertimos en un CMS headless listo para integrarse con cualquier frontend moderno.</li>
+        <li>Mejoramos el rendimiento de tu sitio con técnicas de optimización avanzadas y despliegue en entornos estáticos.</li>
+        <li>Creamos experiencias de usuario únicas, con diseños personalizados y funcionalidades a medida.</li>
+        <li>Facilitamos la escalabilidad y el mantenimiento de tu proyecto con un stack moderno, modular y duradero.</li>
+      </ul>
+    </div>
+    <div class="intro-card mx-auto max-w-lg text-center relative p-8 rounded-3xl shadow-2xl bg-white/5 border border-white/10">
+      <div class="glow-effect absolute inset-0 z-0"></div>
+      <p class="intro-text relative z-10 text-lg text-gray-100">
+        Haz que tu WordPress trabaje para ti, no al revés. Da el salto al futuro del desarrollo web.
+      </p>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS / POR QUÉ ELEGIRNOS -->
+  <section class="benefits mx-auto max-w-4xl bg-white/5 p-8 rounded-2xl shadow-xl">
+    <h3 class="text-xl font-semibold text-white mb-4">✅ ¿Por qué elegir ElSaltoWeb.es?</h3>
+    <ul class="grid md:grid-cols-2 gap-8 text-gray-100">
+      <li class="flex items-start gap-3">
+        <span class="text-2xl">⚡</span>
+        <span>Webs ultrarrápidas gracias a la combinación de WordPress + Jamstack.</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-2xl">🔗</span>
+        <span>Integración sin fricciones con tu frontend favorito.</span>
+      </li>
+      <li class="flex items-start gap-3">
+        <span class="text-2xl">🎨</span>
+        <span>Diseño y UX a medida para destacar frente a tu competencia.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- FEATURES / RECURSOS -->
+  <section>
+    <h2 class="text-2xl font-bold text-center text-white mb-8">Recursos recomendados</h2>
+    <ul class="card-grid grid md:grid-cols-3 gap-6">
       <Card
         href="https://developer.wordpress.org/rest-api/"
         title="API REST de WordPress"
-        body="Aprende a usar la API REST de WordPress con Astro."/>
+        body="Aprende a usar la API REST de WordPress con Astro."
+      />
       <Card
         href="https://elsaltoweb.es/headless-cms/"
         title="Guía de Integración"
@@ -34,201 +85,43 @@ import NavBar from '../components/NavBar.astro';
         title="Integraciones con Astro"
         body="Mejora tu proyecto con integraciones."
       />
-
     </ul>
-  </main>
+  </section>
 
-<style is:global>
-  :root {
-    --gradient-1: #ff7e5f;
-    --gradient-2: #feb47b;
-    --gradient-3: #86a8e7;
-    --gradient-4: #91eac9;
-    --accent-gradient: linear-gradient(45deg, 
-      var(--gradient-1),
-      var(--gradient-2),
-      var(--gradient-3),
-      var(--gradient-4)
-    );
-    --glass-bg: rgba(255, 255, 255, 0.05);
-  }
+  <!-- TESTIMONIOS -->
+  <section class="testimonials max-w-4xl mx-auto">
+    <h2 class="text-2xl font-bold text-center text-white mb-8">💬 Lo que dicen quienes ya han dado el salto</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <blockquote class="bg-white/10 p-6 rounded-xl shadow border-l-4 border-purple-400 text-white">
+        “Integrar WordPress con Astro ha sido un cambio de juego en mi workflow. Súper recomendado.”
+        <span class="block mt-4 text-sm text-purple-200">— Alex, Frontend Dev</span>
+      </blockquote>
+      <blockquote class="bg-white/10 p-6 rounded-xl shadow border-l-4 border-pink-400 text-white">
+        “ElSaltoWeb me ayudó a crear sitios más rápidos y flexibles para mis clientes.”
+        <span class="block mt-4 text-sm text-pink-200">— Marina, Web Designer</span>
+      </blockquote>
+    </div>
+  </section>
 
-  .container {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 70px 1rem;
-    min-height: 100vh;
-  }
+  <!-- CTA FINAL -->
+  <section id="cta" class="text-center py-12">
+    <h2 class="text-3xl font-bold text-white mb-6">🎯 ¿Estás listo para revolucionar tu web?</h2>
+    <p class="mb-6 text-lg text-gray-100">
+      Haz que tu WordPress trabaje para ti, no al revés. Da el salto al futuro del desarrollo web.
+    </p>
+    <a href="/contacto" class="btn-cta px-10 py-4 rounded-full bg-gradient-to-tr from-pink-500 to-purple-600 text-white text-xl font-semibold shadow-lg hover:scale-105 transition">
+      👉 Contacta ahora y transforma tu sitio con ElSaltoWeb.es
+    </a>
+  </section>
+</main>
 
-  .hero-title {
-    text-align: center;
-    margin: 4rem 0 3rem;
-    position: relative;
-  }
-
-  .hero-gradient {
-    display: block;
-    font-size: clamp(3rem, 8vw, 6rem);
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-size: 400%;
-    animation: gradientFlow 12s ease infinite;
-    line-height: 1.1;
-  }
-
-  .subtitle {
-    display: block;
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    color: rgba(255, 255, 255, 0.85);
-    margin-top: 1.5rem;
-    font-weight: 300;
-  }
-
-  .intro-card {
-    position: relative;
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 2.5rem;
-    margin: 3rem auto;
-    max-width: 800px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-  }
-
-  .intro-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .glow-effect {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: radial-gradient(
-      800px circle at var(--x) var(--y),
-      rgba(134, 168, 231, 0.15),
-      transparent 40%
-    );
-    border-radius: inherit;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .intro-card:hover .glow-effect {
-    opacity: 1;
-  }
-
-  .intro-text {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
-    margin: 0 auto;
-    max-width: 1200px;
-  }
-
-  @keyframes gradientFlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-
-  @media (max-width: 768px) {
-    .container {
-        margin-top: 80px;
-      padding: 1rem;
-    }
-    
-    .intro-card {
-      padding: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .card-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title {
-      margin: 2rem 0;
-    }
-    
-    .intro-text {
-      font-size: 1rem;
-    }
-  }
-</style>
-
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Animación con seguimiento del mouse para el efecto de brillo
-  document.addEventListener('DOMContentLoaded', () => {
-    const introCard = document.querySelector('.intro-card');
-    
-    if(introCard) {
-      introCard.addEventListener('mousemove', (e) => {
-        const rect = introCard.getBoundingClientRect();
-        introCard.style.setProperty('--x', `${e.clientX - rect.left}px`);
-        introCard.style.setProperty('--y', `${e.clientY - rect.top}px`);
-      });
-    }
-
-    // Animaciones GSAP con ScrollTrigger
-    gsap.from(".hero-gradient", {
-      duration: 1.5,
-      opacity: 0,
-      y: 50,
-      ease: "power4.out"
+  
+  
+  <script type="module">
+    import { initIntroCardGlow, initGSAPAnimations } from '/scripts/animations.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initIntroCardGlow();
+      initGSAPAnimations();
     });
+  </script>
 
-    gsap.from(".subtitle", {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      delay: 0.3,
-      ease: "expo.out"
-    });
-
-    gsap.from(".intro-card", {
-      scrollTrigger: {
-        trigger: ".intro-card",
-        start: "top 80%"
-      },
-      duration: 1,
-      opacity: 0,
-      y: 50,
-      ease: "power2.out"
-    });
-
-    gsap.from(".card-grid > *", {
-      scrollTrigger: {
-        trigger: ".card-grid",
-        start: "top 90%"
-      },
-      duration: 0.8,
-      opacity: 0,
-      y: 40,
-      stagger: 0.15,
-      ease: "back.out(1.4)"
-    });
-  });
-</script>
