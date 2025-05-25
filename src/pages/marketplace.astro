@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+// Cambia la URL a la de tu WordPress. OJO: debe estar habilitada la REST API pública.
+const WP_API_URL = 'https://elsaltoweb.es/wp-json/wp/v2/posts?_embed&per_page=12';
+
+const response = await fetch(WP_API_URL);
+const posts = await response.json();
+---
+
+<Layout title="Marketplace - ElSaltoWeb">
+  <main class="container mx-auto px-4 py-10 space-y-16">
+    <section class="text-center space-y-4">
+      <h1 class="hero-title text-4xl md:text-6xl font-extrabold">
+        <span class="hero-gradient block">Marketplace de Recursos</span>
+      </h1>
+      <p class="subtitle text-xl text-gray-200">
+        Explora y adquiere recursos, tutoriales y artículos seleccionados de nuestro blog WordPress.
+      </p>
+    </section>
+
+    <!-- Grid de cards tipo marketplace -->
+    <section>
+      <h2 class="text-2xl font-bold text-center text-white mb-8">Últimos artículos / recursos</h2>
+      <ul class="card-grid grid md:grid-cols-3 gap-8">
+        {posts.length > 0 ? (
+          posts.map(post => (
+            <li>
+              <Card
+                href={`/articulo/${post.slug}`}
+                title={post.title.rendered}
+                body={post.excerpt.rendered.replace(/(<([^>]+)>)/gi, '')}
+                image={post._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? undefined}
+              />
+            </li>
+          ))
+        ) : (
+          <p class="text-center text-lg text-gray-300 col-span-3">
+            No se encontraron artículos. ¿Has conectado bien tu API?
+          </p>
+        )}
+      </ul>
+    </section>
+  </main>
+</Layout>
