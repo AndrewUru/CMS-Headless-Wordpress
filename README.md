@@ -79,7 +79,3 @@ Este proyecto está bajo la Licencia MIT. Puedes ver más detalles en el archivo
 
 Hecho con ❤️ por Andrés Tobío
 
-### Cómo utilizar este `README.md`
-1. **Integración:** Copia el contenido proporcionado en el archivo `README.md` de tu proyecto.
-2. **Personalización:** Ajusta cualquier sección que desees personalizar más (como detalles de contacto o pasos específicos).
-3. **Colaboración:** Invita a otros desarrolladores a contribuir en tu proyecto siguiendo las indicaciones del archivo.
